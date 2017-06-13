@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2017-06-12 23:33:08 UTC"
+    "timestamp": "2017-06-13 00:27:38 UTC"
   },
   "software": {
     "base": {
@@ -62,7 +62,7 @@
     "scripts": {
       "start": {
         "language": "sh",
-        "content": "#!/bin/sh\r\nmkdir -p  /engines/var/run/flags/\r\nPID_FILE=/home/app/logs/ts3server.pid\r\n\r\nexport PID_FILE\r\n. /home/trap.sh\r\nexport LD_LIBRARY_PATH=\".:$LD_LIBRARY_PATH\"\r\n\r\n/home/app/ts3server &\r\npid=$!\r\necho $pid > /home/app/logs/ts3server.pid\r\nsleep 2\r\ntouch /engines/var/run/flags/startup_complete\r\nwait $pid\r\nrm /engines/var/run/flags/startup_complete\r\n\r\n"
+        "content": "#!/bin/sh\r\nmkdir -p  /engines/var/run/flags/\r\nPID_FILE=/home/app/logs/ts3server.pid\r\n\r\nexport PID_FILE\r\n. /home/trap.sh\r\nexport LD_LIBRARY_PATH=\".:$LD_LIBRARY_PATH\"\r\n\r\n/home/app/ts3server &\r\npid=$!\r\necho $pid > /home/app/logs/ts3server.pid\r\nsleep 2\r\ntouch /engines/var/run/flags/startup_complete\r\nwait $pid\r\nrm /engines/var/run/flags/startup_complete\r\necho exit\r\n"
       },
       "install": {
         "language": "sh"
