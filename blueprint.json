@@ -2,8 +2,8 @@
   "schema": {
     "type": "app_blueprint",
     "version": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 1
     },
     "origin": "Engines Developer Studio 0.2"
   },
@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2017-06-13 01:16:47 UTC"
+    "timestamp": "2018-04-02T08:11:59+10:00"
   },
   "software": {
     "base": {
@@ -44,18 +44,18 @@
     },
     "ports": [
       {
-        "port": 30033,
-        "external": 30033,
+        "port": "30033",
+        "external": "30033",
         "protocol": "TCP"
       },
       {
-        "port": 10011,
-        "external": 10011,
+        "port": "10011",
+        "external": "10011",
         "protocol": "TCP"
       },
       {
-        "port": 9987,
-        "external": 9987,
+        "port": "9987",
+        "external": "9987",
         "protocol": "UDP"
       }
     ],
@@ -76,8 +76,8 @@
     },
     "installed_packages": [
       {
-        "name": "teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2",
-        "source_url": "http://dl.4players.de/ts/releases/3.0.12.3/teamspeak3-server_linux_amd64-3.0.12.3.tar.bz2",
+        "name": "teamspeak3-server_linux_amd64-3.1.1.tar.bz2",
+        "source_url": "http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2",
         "destination": "/home/app",
         "extraction_command": "tar -xpf",
         "path_to_extracted": "teamspeak3-server_linux_amd64"
