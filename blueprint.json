@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2018-04-02T08:38:08+10:00"
+    "timestamp": "2018-04-02T09:20:24+10:00"
   },
   "software": {
     "base": {
@@ -62,7 +62,7 @@
     "scripts": {
       "start": {
         "language": "sh",
-        "content": "#!/bin/sh\r\n. /home/engines/functions/trap.sh\r\n\r\nPID_FILE=/home/engines/run/ts3server.pid\r\n\r\nexport PID_FILE\r\n\r\nexport LD_LIBRARY_PATH=\".:$LD_LIBRARY_PATH\"\r\n\r\n/home/app/ts3server &\r\npid=$!\r\necho $pid > $PID_FILE\r\nsleep 10\r\nstartup_complete\r\nwait $pid\r\nr=$?\r\nshutdown_complete\r\necho exit $?\r\n"
+        "content": "#!/bin/sh\r\n. /home/engines/functions/trap.sh\r\n\r\nPID_FILE=/home/engines/run/ts3server.pid\r\n\r\nexport PID_FILE\r\n\r\nexport LD_LIBRARY_PATH=\".:$LD_LIBRARY_PATH\"\r\ncd /home/app\r\n\r\nif ! test -h /home/app/ts3server.sqlitedb\r\n then\r\n   mkdir /home/fs/files/db/\r\n   mv /home/app/ts3server.sqlitedb /home/fs/files/db/\r\n   ln -s /home/fs/files/db/ts3server.sqlitedb /home/app/\r\nfi\r\n \r\nif test -f ./ts.ini\r\n then\r\n  ./ts3server_minimal_runscript.sh initfile=./ts.ini &\r\nelse\r\n./ts3server_minimal_runscript.sh clear_database=1 create_default_virtualserver=1 logpath=/var/logs createinifile=1  &\r\nmv ts3server.ini /ts.ini\r\nfi\r\n#/home/app/ts3server &\r\npid=$!\r\necho $pid > $PID_FILE\r\nsleep 10\r\nstartup_complete\r\nwait $pid\r\nr=$?\r\nshutdown_complete\r\necho exit $?\r\n"
       },
       "install": {
         "language": "sh"
@@ -90,7 +90,7 @@
         "variables": {
           "user": "_Engines_Builder(data_uid)",
           "group": "_Engines_Builder(data_gid)",
-          "service_name": "_Engines_Builder(engine_name)",
+          "service_name": "files",
           "volume_src": " ",
           "permissions": "rw",
           "engine_path": "persistent"
@@ -109,22 +109,13 @@
         }
       }
     ],
-    "template_files": [
-      {
-        "path": "app/ts3db_mysql.ini",
-        "language": "text",
-        "content": "[config]\r\nhost=_Engines_Environment(dbhost)\r\nport=3306\r\nusername=_Engines_Environment(dbuser)\r\npassword=_Engines_Environment(dbpasswd)\r\ndatabase=_Engines_Environment(dbname)\r\nsocket="
-      }
-    ],
     "database_seed": {
       "language": "text"
     },
     "persistent_directories": [
       {
-        "path": "app/files"
-      },
-      {
-        "path": "app/logs"
+        "path": "app/files",
+        "volume_name": "files"
       }
     ],
     "persistent_files": [
