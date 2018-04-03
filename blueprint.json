@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2018-04-02T10:06:53+10:00"
+    "timestamp": "2018-04-03T16:30:29+10:00"
   },
   "software": {
     "base": {
@@ -56,7 +56,7 @@
       {
         "port": "9987",
         "external": "9987",
-        "protocol": "UDP"
+        "protocol": "udp"
       }
     ],
     "scripts": {
