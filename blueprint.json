@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2018-04-03T16:30:29+10:00"
+    "timestamp": "2020-03-19T11:01:24+11:00"
   },
   "software": {
     "base": {
@@ -77,8 +77,9 @@
     },
     "installed_packages": [
       {
-        "name": "teamspeak3-server_linux_amd64-3.1.1.tar.bz2",
-        "source_url": "http://dl.4players.de/ts/releases/3.1.1/teamspeak3-server_linux_amd64-3.1.1.tar.bz2",
+        "name": "teamspeak3-server_linux_amd64-3.8.0.tar.bz2",
+        "download_type": "http(s)",
+        "source_url": "http://dl.4players.de/ts/releases/3.8.0/teamspeak3-server_linux_amd64-3.8.0.tar.bz2",
         "destination": "/home/app",
         "extraction_command": "tar -xpf",
         "path_to_extracted": "teamspeak3-server_linux_amd64"
@@ -89,12 +90,14 @@
         "publisher_namespace": "EnginesSystem",
         "type_path": "filesystem/local/filesystem",
         "variables": {
-          "user": "_Engines_Builder(data_uid)",
-          "group": "_Engines_Builder(data_gid)",
           "service_name": "files",
           "volume_src": " ",
+          "engine_path": "persistent",
           "permissions": "rw",
-          "engine_path": "persistent"
+          "user": "_Engines_Builder(data_uid)",
+          "group": "_Engines_Builder(data_gid)",
+          "fw_user": "_Engines_Builder(cont_user_id)",
+          "exclude_from_backup": "false"
         }
       }
     ],
