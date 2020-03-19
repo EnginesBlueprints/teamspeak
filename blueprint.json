@@ -28,7 +28,7 @@
         "url": "http://sales.teamspeakusa.com/licensing.php"
       }
     },
-    "timestamp": "2020-03-19T12:05:23+11:00"
+    "timestamp": "2020-03-19T12:21:48+11:00"
   },
   "software": {
     "base": {
@@ -77,9 +77,9 @@
     },
     "installed_packages": [
       {
-        "name": "teamspeak3-server_linux_amd64-3.8.0.tar.bz2",
+        "name": "teamspeak3-server_linux_amd64-3.12.0.tar.bz2",
         "download_type": "http(s)",
-        "source_url": "http://dl.4players.de/ts/releases/3.8.0/teamspeak3-server_linux_amd64-3.8.0.tar.bz2",
+        "source_url": "https://files.teamspeak-services.com/releases/server/3.12.0/teamspeak3-server_linux_amd64-3.12.0.tar.bz2",
         "destination": "/home/app",
         "extraction_command": "tar -xpf",
         "path_to_extracted": "teamspeak3-server_linux_amd64"
